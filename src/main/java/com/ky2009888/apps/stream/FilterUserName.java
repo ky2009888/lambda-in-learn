@@ -39,6 +39,13 @@ public class FilterUserName {
                     return (name.split("")[1]).equals("馨");
                 })
                 .limit(3).collect(Collectors.toList());
+        //方法引用的案例:
+        Arrays.stream(userNamesArray)
+                .filter(name -> name.length() == 3)
+                .filter((name) -> {
+                    return (name.split("")[1]).equals("馨");
+                })//省略写法
+                .limit(3).forEach(log::info);
         log.info("{}", nameStrList);
     }
 }
