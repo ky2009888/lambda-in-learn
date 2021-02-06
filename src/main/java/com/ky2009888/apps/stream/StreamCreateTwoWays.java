@@ -28,5 +28,9 @@ public class StreamCreateTwoWays {
         Stream<Map.Entry<String, String>> mapEntrySetStream = map.entrySet().stream();
         //4、通过Stream.of的方式创建流
         Stream<String> stringStream = Stream.of("1", "2", "3", "4");
+        //Stream流的使用注意事项:
+        //1、Stream只能操作一次；
+        //2、Stream返回的是新的流；
+        //3、Stream不调用终结方法，中间的方法不会执行。
     }
 }
