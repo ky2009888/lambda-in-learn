@@ -37,5 +37,6 @@ public class StreamParallelSafeDemo {
         });
         log.info("integerList:{}", integerList);
         log.info("integerList.count:{}", integerList.size());
+        //调用collect或者toArray方法，获取到的就是线程安全的.
     }
 }
