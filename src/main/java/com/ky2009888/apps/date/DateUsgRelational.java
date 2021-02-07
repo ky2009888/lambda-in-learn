@@ -2,8 +2,7 @@ package com.ky2009888.apps.date;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -40,5 +39,15 @@ public class DateUsgRelational {
         log.info(format);
         LocalDate date1 = LocalDate.parse("20140318", DateTimeFormatter.BASIC_ISO_DATE);
         log.info("{}", date1);
+        LocalDate date = LocalDate.of(2014, Month.MARCH, 18);
+        ZoneId romeZone = ZoneId.of("Europe/Rome");
+        ZonedDateTime zdt1 = date.atStartOfDay(romeZone);
+        log.info("{}", zdt1);
+        LocalDateTime dateTime = LocalDateTime.of(2014, Month.MARCH, 18, 13, 45);
+        ZonedDateTime zdt2 = dateTime.atZone(romeZone);
+        log.info("{}", zdt2);
+        Instant instant = Instant.now();
+        ZonedDateTime zdt3 = instant.atZone(romeZone);
+        log.info("{}", zdt3);
     }
 }
