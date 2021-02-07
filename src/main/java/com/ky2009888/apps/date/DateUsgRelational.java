@@ -14,6 +14,9 @@ public class DateUsgRelational {
     public static void main(String[] args) {
         LocalDate localDate = LocalDate.now();
         log.info("{}", localDate);
+        //时间格式化
+        localDate.format(DateTimeFormatter.ofPattern("MM-yyyy-dd"));
+        log.info("{}", localDate);
         LocalDate localDate1 = LocalDate.of(2020, 9, 9);
         log.info("{}", localDate1.toString());
         log.info("year:{}", localDate1.getYear());
@@ -35,5 +38,7 @@ public class DateUsgRelational {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy年MM月dd日");
         String format = dateTimeFormatter.format(localDate1);
         log.info(format);
+        LocalDate date1 = LocalDate.parse("20140318", DateTimeFormatter.BASIC_ISO_DATE);
+        log.info("{}", date1);
     }
 }
